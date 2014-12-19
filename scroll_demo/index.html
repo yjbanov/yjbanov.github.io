@@ -19,15 +19,31 @@
     <meta charset="utf-8">
     <title>Barista: Scrolling table example</title>
     <style>
-        #scroll-root {
-            height: 680px;
-            width: 1000px;
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #header {
+            position: absolute;
+            top: 0; right: 0; left: 0;
+            height: 30px;
+            padding: 5px 10px;
+        }
+
+        #app-root {
+            position: fixed;
+            top: 30px; right: 0; bottom: 0; left: 0;
+        }
+
+        #scroll-root,
+        #scroll-root > div {
+            position: absolute;
+            top: 0px; right: 0; bottom: 0; left: 0;
         }
 
         #scroll-root > div {
-            height: 680px;
-            width: 1000px;
-            border: 1px solid #000;
+            border-top: 1px solid #000;
             overflow-y: scroll;
         }
 
@@ -41,13 +57,19 @@
         .column {
             flex: 1;
         }
+
+        #loading-indicator {
+            height: 40px;
+            padding: 10px;
+            text-align: center;
+        }
     </style>
     <link href="../common/x_status_buttons.css" rel="stylesheet" />
 </head>
 <body>
-    <p>
+    <div id="header">
         <a href="?">Run w/ isolate</a> | <a href="?ui">Run w/o isolate</a>
-    </p>
+    </div>
     <div id="app-root"></div>
 <script type="application/dart" src="scrolling_benchmark.dart"></script>
 <script src="packages/browser/dart.js"></script>

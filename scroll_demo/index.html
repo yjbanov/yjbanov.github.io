@@ -1,0 +1,55 @@
+<!--
+// Copyright 2014 Google Inc. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Barista: Scrolling table example</title>
+    <style>
+        #scroll-root {
+            height: 680px;
+            width: 1000px;
+        }
+
+        #scroll-root > div {
+            height: 680px;
+            width: 1000px;
+            border: 1px solid #000;
+            overflow-y: scroll;
+        }
+
+        #scroll-root > div > div > div {
+            height: 40px;
+            line-height: 50px;
+            font-size: 18px;
+            display: flex;
+        }
+
+        .column {
+            flex: 1;
+        }
+    </style>
+    <link href="../common/x_status_buttons.css" rel="stylesheet" />
+</head>
+<body>
+    <p>
+        <a href="?">Run w/ isolate</a> | <a href="?ui">Run w/o isolate</a>
+    </p>
+    <div id="app-root"></div>
+<script type="application/dart" src="scrolling_benchmark.dart"></script>
+<script src="packages/browser/dart.js"></script>
+</body>
+</html>

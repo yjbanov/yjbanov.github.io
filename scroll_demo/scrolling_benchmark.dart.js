@@ -2047,46 +2047,38 @@ v=u.Hg
 if(v!=null&&!v.Yr)v.An()}}}}}}],["","",,S,{
 "^":"",
 XF:{
-"^":"a;q0,IR,JY,tp,mf,tY,tl,o3",
+"^":"a;q0,IR,JY,tp,tY,tl,o3",
 Ai:function(){if(this.IR.xN.length===this.q0.length){var z=this.JY
-z.Rz(z,this.mf)
 z.Rz(z,this.tl)
 z.Rz(z,this.tY)
 return}P.rT(C.RT,new S.Hi(this))},
-cm:function(a,b,c){var z,y,x,w
-z=this.mf
-J.kW(z.gQg(z),"id","loading-indicator")
-y=this.tY
-J.bj(y.gQg(y),P.EF(["style","position: fixed;bottom: 10px; right: 10px;height: 20px; width: 80px;padding: 10px;text-align: center; valign: middle;color: white;background-color: rgba(0, 0, 0, 0.5);z-index: 1;"],null,null))
-x=this.JY
-x.h(0,this.tl)
-x.h(0,y)
-for(y=this.q0,w=0;w<y.length;++w)J.kW(y[w],"_index_",w)
-y=this.tp
-x.h(0,y)
-x.h(0,z)
-J.kW(y.gQg(y),"style","width: 1500px;position: relative")
-new R.hF(y,P.Fl(F.cv,P.oh),null,null).HH(this.IR)
+cm:function(a,b,c){var z,y,x
+z=this.tY
+J.bj(z.gQg(z),P.EF(["style","position: fixed;bottom: 10px; right: 10px;height: 20px; width: 80px;padding: 10px;text-align: center; valign: middle;color: white;background-color: rgba(0, 0, 0, 0.5);z-index: 1;"],null,null))
+y=this.JY
+y.h(0,this.tl)
+y.h(0,z)
+for(z=this.q0,x=0;x<z.length;++x)J.kW(z[x],"_index_",x)
+z=this.tp
+y.h(0,z)
+J.kW(z.gQg(z),"style","width: 1500px;position: relative")
+new R.hF(z,P.Fl(F.cv,P.oh),null,null).HH(this.IR)
 this.Ai()},
-static:{lu:function(a,b,c){var z,y,x,w,v,u,t
+static:{lu:function(a,b,c){var z,y,x,w,v,u
 z=$.l7
 y=z+1
 $.l7=y
 $.l7=y+1
 y=new F.cv("div",null,null,null,null,y,null,!0)
-y.HE(0,"Loading more...")
+y.HE(0,"0%")
 x=$.l7
 $.l7=x+1
-x=new F.cv("div",null,null,null,null,x,null,!0)
-x.HE(0,"0%")
-w=$.l7
-$.l7=w+1
-v=C.Nm.br(c)
-u=G.c0
-t=H.VM([],[u])
-w=new S.XF(v,H.VM(new Q.wn(null,null,t,null,null),[u]),a,new F.cv("div",null,null,null,null,z,null,!0),y,x,new F.cv("div",null,null,null,null,w,null,!0),b)
-w.cm(a,b,c)
-return w}}},
+w=C.Nm.br(c)
+v=G.c0
+u=H.VM([],[v])
+x=new S.XF(w,H.VM(new Q.wn(null,null,u,null,null),[v]),a,new F.cv("div",null,null,null,null,z,null,!0),y,new F.cv("div",null,null,null,null,x,null,!0),b)
+x.cm(a,b,c)
+return x}}},
 Hi:{
 "^":"Tp:36;a",
 $0:function(){var z,y,x,w,v,u,t,s

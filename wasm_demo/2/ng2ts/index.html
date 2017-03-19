@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Angular giant app benchmark</title>
+  <base href=".">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+      window.beforeMain = performance.now();
+
+      function printStats() {
+          console.log(document.querySelectorAll('*').length, 'elements');
+          console.log(document.querySelectorAll('*[widget]').length, 'widgets');
+      }
+  </script>
+<link href="styles.1fb7bd8be465817ecebd.bundle.css" rel="stylesheet"/></head>
+<body>
+  <app-root></app-root>
+<script type="text/javascript" src="inline.989ed8e1295a5c5aec39.bundle.js"></script><script type="text/javascript" src="polyfills.81ed681e29bd26c517a4.bundle.js"></script><script type="text/javascript" src="vendor.a2d772b3b758ae9e9690.bundle.js"></script><script type="text/javascript" src="main.88d728fd4a1c1695014d.bundle.js"></script></body>
+</html>

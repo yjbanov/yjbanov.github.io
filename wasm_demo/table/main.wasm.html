@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <title>WebAssembly Demo</title>
+    <link href="web/main.css" rel="stylesheet">
+</head>
+<body>
+<div id="host"></div>
+
+<!--
+main.js instrumentation code:
+
+      var ssss = performance.now();
+      var mmm = new WebAssembly.Module(getBinary());
+      var eeee = performance.now();
+      console.log('>>> WebAssembly.Module', eeee - ssss, 'ms');
+
+      var sss = performance.now();
+      instance = new WebAssembly.Instance(mmm, info);
+      var eee = performance.now();
+      console.log('>>> WebAssembly.Instance', eee - sss, 'ms');
+-->
+
+<script type="application/javascript" src="sync.js"></script>
+<script type="application/javascript">
+    loadApp('main');
+</script>
+</body>
+</html>

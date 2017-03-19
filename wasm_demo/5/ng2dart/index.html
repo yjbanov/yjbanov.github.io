@@ -1,0 +1,26 @@
+<!DOCTYPE html><html><head>
+    <meta charset="utf-8">
+    <title>AngularDart giant app benchmark</title>
+    <link href="main.css" rel="stylesheet">
+  </head>
+  <body>
+    <giant-app-wrapper></giant-app-wrapper>
+
+    <script>
+        let beforeMain = performance.now();
+
+        function inMain() {
+          let afterMain = performance.now();
+          console.log(`>>> Time to main: ${afterMain - beforeMain} ms`);
+        }
+
+        function printStats() {
+            console.log(document.querySelectorAll('*').length, 'elements');
+            console.log(document.querySelectorAll('*[widget]').length, 'widgets');
+        }
+    </script>
+    <script src="giant.dart.js"></script>
+    
+  
+
+</body></html>

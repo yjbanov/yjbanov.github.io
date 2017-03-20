@@ -4,6 +4,19 @@
   <title>wasm2dom demo</title>
 </head>
 <body>
+  <div id="has-wasm" style="display:none;color:green;">Congratulations! Your browser supports WebAssembly.</div>
+  <div id="no-wasm" style="display:none;color:red;font-size:large;font-weight:bold">
+    Your browser does not support WebAssembly. WebAssembly demos won't work.
+    Try the latest Chrome Canary (I haven't tested on Firefox/IE/WebKit yet).
+  </div>
+  <script type="text/javascript">
+    if (typeof WebAssembly === 'object') {
+      document.querySelector('#has-wasm').style.display = '';
+    } else {
+      document.querySelector('#no-wasm').style.display = '';
+    }
+  </script>
+
   <h2>Demos</h2>
 
   <p><a href="todo/todo.html" target="_blank">TodoMVC</a></p>

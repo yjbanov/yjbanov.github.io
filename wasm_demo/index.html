@@ -6,49 +6,65 @@
 <body>
   <h2>Demos</h2>
 
-  <p>
-    <a href="todo/todo.html" target="_blank">TodoMVC</a>
-
-  <p>
-    <a href="table/main.wasm.html" target="_blank">Table</a>
+  <p><a href="todo/todo.html" target="_blank">TodoMVC</a></p>
+  <p><a href="todo/todo.html#idb" target="_blank">TodoMVC (with IndexedDB)</a></p>
+  <p><a href="table/main.wasm.html" target="_blank">Table</a></p>
+  <p><a href="table/main.wasm.html#idb" target="_blank">Table (with IndexedDB)</a></p>
 
   <h2>Benchmarks</h2>
 
+  <style>
+    td {
+      padding: 5px;
+    }
+    td:nth-child(1) {
+      text-align: right;
+      font-weight: bold;
+    }
+    td:nth-child(n+2) {
+      border: 1px solid black;
+    }
+  </style>
   <table>
     <tr>
       <td>Small app:</td>
-      <td><a href="2/wasm/index.html" target="_blank">wasm</a></td>
-      <td><a href="2/inferno/index.html" target="_blank">inferno</a></td>
-      <td><a href="2/ng2dart/index.html" target="_blank">ng2dart</a></td>
-      <td><a href="2/ng2ts/index.html" target="_blank">ng2ts</a></td>
+      <td><a href="2/wasm/index.html" target="_blank">WebAssembly</a></td>
+      <td><a href="2/wasm/index.html#idb" target="_blank">WebAssembly (with IndexedDB)</a></td>
+      <td><a href="2/inferno/index.html" target="_blank">Inferno</a></td>
+      <td><a href="2/ng2dart/index.html" target="_blank">AngularDart</a></td>
+      <td><a href="2/ng2ts/index.html" target="_blank">AngularTS</a></td>
     </tr>
     <tr>
       <td>Medium app:</td>
-      <td><a href="3/wasm/index.html" target="_blank">wasm</a></td>
-      <td><a href="3/inferno/index.html" target="_blank">inferno</a></td>
-      <td><a href="3/ng2dart/index.html" target="_blank">ng2dart</a></td>
-      <td><a href="3/ng2ts/index.html" target="_blank">ng2ts</a></td>
+      <td><a href="3/wasm/index.html" target="_blank">WebAssembly</a></td>
+      <td><a href="3/wasm/index.html#idb" target="_blank">WebAssembly (with IndexedDB)</a></td>
+      <td><a href="3/inferno/index.html" target="_blank">Inferno</a></td>
+      <td><a href="3/ng2dart/index.html" target="_blank">AngularDart</a></td>
+      <td><a href="3/ng2ts/index.html" target="_blank">AngularTS</a></td>
     </tr>
     <tr>
       <td>Medium-large app:</td>
-      <td><a href="4/wasm/index.html" target="_blank">wasm</a></td>
-      <td><a href="4/inferno/index.html" target="_blank">inferno</a></td>
-      <td><a href="4/ng2dart/index.html" target="_blank">ng2dart</a></td>
-      <td><a href="4/ng2ts/index.html" target="_blank">ng2ts</a></td>
+      <td><a href="4/wasm/index.html" target="_blank">WebAssembly</a></td>
+      <td><a href="4/wasm/index.html#idb" target="_blank">WebAssembly (with IndexedDB)</a></td>
+      <td><a href="4/inferno/index.html" target="_blank">Inferno</a></td>
+      <td><a href="4/ng2dart/index.html" target="_blank">AngularDart</a></td>
+      <td><a href="4/ng2ts/index.html" target="_blank">AngularTS</a></td>
     </tr>
     <tr>
       <td>Large app:</td>
-      <td><a href="5/wasm/index.html" target="_blank">wasm</a></td>
-      <td><a href="5/inferno/index.html" target="_blank">inferno</a></td>
-      <td><a href="5/ng2dart/index.html" target="_blank">ng2dart</a></td>
-      <td><a href="5/ng2ts/index.html" target="_blank">ng2ts</a></td>
+      <td><a href="5/wasm/index.html" target="_blank">WebAssembly</a></td>
+      <td><a href="5/wasm/index.html#idb" target="_blank">WebAssembly (with IndexedDB)</a></td>
+      <td><a href="5/inferno/index.html" target="_blank">Inferno</a></td>
+      <td><a href="5/ng2dart/index.html" target="_blank">AngularDart</a></td>
+      <td><a href="5/ng2ts/index.html" target="_blank">AngularTS</a></td>
     </tr>
     <tr>
       <td>Very large app:</td>
-      <td><a href="6/wasm/index.html" target="_blank">wasm</a></td>
-      <td><a href="6/inferno/index.html" target="_blank">inferno</a></td>
-      <td><a href="6/ng2dart/index.html" target="_blank">ng2dart</a></td>
-      <td><a href="6/ng2ts/index.html" target="_blank">ng2ts</a></td>
+      <td><a href="6/wasm/index.html" target="_blank">WebAssembly</a></td>
+      <td><a href="6/wasm/index.html#idb" target="_blank">WebAssembly (with IndexedDB)</a></td>
+      <td><a href="6/inferno/index.html" target="_blank">Inferno</a></td>
+      <td><a href="6/ng2dart/index.html" target="_blank">AngularDart</a></td>
+      <td><a href="6/ng2ts/index.html" target="_blank">AngularTS</a></td>
     </tr>
   </table>
 </body>

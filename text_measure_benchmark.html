@@ -1,0 +1,65 @@
+<body>
+  <h1>Benchmarks text measurement</h1>
+
+  <button onclick="javascript: measure()">Run benchmark</button>
+  <div id="result"></div>
+
+  <button onclick="javascript: sample()">Show sample text</button>
+  <div id="sample"></div>
+
+  <script>
+    let lipsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pretium nunc massa, consectetur mollis nulla hendrerit at. Aenean vitae finibus arcu. Nunc hendrerit, risus vitae vestibulum vestibulum, ex libero pellentesque nisi, non commodo elit augue non metus. Sed mi quam, euismod eu nisi et, maximus tempus urna. Cras eget orci semper, ultrices orci tincidunt, viverra enim. Integer aliquam ante nulla, eget ultricies orci hendrerit egestas. Cras quis venenatis dui. Cras at feugiat sem. Nam pulvinar nunc at tristique eleifend. Nulla dignissim ante id mattis tincidunt. Pellentesque malesuada viverra vestibulum. Quisque iaculis interdum lorem, quis maximus odio elementum et. Vestibulum accumsan odio ut fermentum dignissim. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus volutpat aliquet nunc, bibendum iaculis erat scelerisque vitae. Sed sed magna nunc.';
+    let min = 40;
+    let max = lipsum.length;
+    let sizes = ['10px', '14px', '18px', '24px'];
+    let widths = ['40px', '70px', '100px', '130px', '160px'];
+    let families = ['Georgia', 'sans-serif', 'serif', 'cursive'];
+
+    function generateDiv() {
+      let rndStart = Math.random() * max / 2;
+      let rndLength = min + Math.random() * (max / 2 - min);
+      let rndString = lipsum.substring(rndStart, rndStart + rndLength);
+      let rndFamily = families[Math.floor(Math.random() * families.length)];
+      let rndSize = sizes[Math.floor(Math.random() * sizes.length)];
+      let rndWidth = widths[Math.floor(Math.random() * widths.length)];
+
+      let div = document.createElement('div');
+      div.innerHTML = rndString;
+      div.style.position = 'absolute';
+      div.style.top = '0px';
+      div.style.right = '0px';
+      div.style.fontFamily = rndFamily;
+      div.style.fontWeight = 'normal';
+      div.style.fontSize = rndSize;
+      div.style.width = rndWidth;
+      return div;
+    }
+
+    function measure() {
+      let start = performance.now();
+      let now = performance.now();
+      let measurements = [];
+
+      while(now - start < 1000) {
+        let div = generateDiv();
+        document.body.appendChild(div);
+        measurements.push(div.offsetHeight);
+        div.remove();
+        now = performance.now();
+      }
+
+      let perMillisecond = measurements.length / (now - start);
+      let per60FpsFrame = 16 * perMillisecond;
+      let per30FpsFrame = 32 * perMillisecond;
+      document.querySelector('#result').innerHTML = `${per60FpsFrame} measurements @ 60fps. ${per30FpsFrame} measurements @ 30fps.`;
+    }
+
+    function sample() {
+      let sample = document.querySelector('#sample');
+      while (sample.firstChild) {
+        sample.removeChild(sample.firstChild);
+      }
+      sample.appendChild(generateDiv());
+    }
+  </script>
+</body>

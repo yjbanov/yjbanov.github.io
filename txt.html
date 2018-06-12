@@ -1,13 +1,23 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <title>Text layout benchmark</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+</head>
 <body>
-  <h1>Benchmarks text measurement</h1>
+  <h1>Text layout benchmark</h1>
 
-  <button onclick="javascript: measure()">Run benchmark</button>
-  <div id="result"></div>
+  <button onclick="javascript: measure()" style="width: 100%; color: white; background-color: #00aa00; font-size: 30px; padding: 10px">
+    Run benchmark
+  </button>
+  <pre style="margin-bottom: 20px" id="result"></pre>
 
-  <button onclick="javascript: sample()">Show sample text</button>
-  <div id="sample"></div>
+  <button onclick="javascript: sample()" style="width: 100%; color: white; background-color: #00aa00; font-size: 30px; padding: 10px">
+    Show sample text
+  </button>
 
   <script>
+    let latestSample = null;
     let lipsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pretium nunc massa, consectetur mollis nulla hendrerit at. Aenean vitae finibus arcu. Nunc hendrerit, risus vitae vestibulum vestibulum, ex libero pellentesque nisi, non commodo elit augue non metus. Sed mi quam, euismod eu nisi et, maximus tempus urna. Cras eget orci semper, ultrices orci tincidunt, viverra enim. Integer aliquam ante nulla, eget ultricies orci hendrerit egestas. Cras quis venenatis dui. Cras at feugiat sem. Nam pulvinar nunc at tristique eleifend. Nulla dignissim ante id mattis tincidunt. Pellentesque malesuada viverra vestibulum. Quisque iaculis interdum lorem, quis maximus odio elementum et. Vestibulum accumsan odio ut fermentum dignissim. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus volutpat aliquet nunc, bibendum iaculis erat scelerisque vitae. Sed sed magna nunc.';
     let min = 40;
     let max = lipsum.length;
@@ -26,7 +36,7 @@
       let div = document.createElement('div');
       div.innerHTML = rndString;
       div.style.position = 'absolute';
-      div.style.top = '0px';
+      div.style.bottom = '0px';
       div.style.right = '0px';
       div.style.fontFamily = rndFamily;
       div.style.fontWeight = 'normal';
@@ -36,6 +46,10 @@
     }
 
     function measure() {
+      if (latestSample) {
+        latestSample.remove();
+      }
+
       let start = performance.now();
       let now = performance.now();
       let measurements = [];
@@ -51,15 +65,20 @@
       let perMillisecond = measurements.length / (now - start);
       let per60FpsFrame = 16 * perMillisecond;
       let per30FpsFrame = 32 * perMillisecond;
-      document.querySelector('#result').innerHTML = `${per60FpsFrame} measurements @ 60fps. ${per30FpsFrame} measurements @ 30fps.`;
+      document.querySelector('#result').innerHTML =
+      `
+${per60FpsFrame.toFixed(1)} measurements/frame @ 60fps.
+${per30FpsFrame.toFixed(1)} measurements/frame @ 30fps.
+      `.trim();
     }
 
     function sample() {
-      let sample = document.querySelector('#sample');
-      while (sample.firstChild) {
-        sample.removeChild(sample.firstChild);
+      if (latestSample) {
+        latestSample.remove();
       }
-      sample.appendChild(generateDiv());
+      latestSample = generateDiv();
+      document.body.appendChild(latestSample);
     }
   </script>
 </body>
+</html>

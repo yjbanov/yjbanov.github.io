@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <title>a11y test harness</title>
+    <script src="test.js"></script>
+    <style>
+        flt-report {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            height: 200px;
+            background-color: #000000;
+        }
+
+        flt-event {
+            position: absolute;
+            height: 20px;
+            padding: 2px;
+            color: white;
+            min-width: 1px;
+        }
+    </style>
+  </head>
+  <body>
+      <flt-scene>
+            <button>Button</button>
+      </flt-scene>
+
+      <flt-report></flt-report>
+  </body>
+</html>

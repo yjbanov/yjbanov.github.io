@@ -1,4 +1,27 @@
 window.addEventListener('load', () => {
+    let absScroll = document.querySelector('.abs-scroll');
+    let lastScrollTop = 0;
+    let scrollPosition = 0;
+
+    function updateItemPositions() {
+        let child = absScroll.firstElementChild;
+        let i = 0;
+        while(child) {
+            child.style.top = `${20 * i - scrollPosition + lastScrollTop}px`;
+            child = child.nextElementSibling;
+            i++;
+        }
+    }
+
+    updateItemPositions();
+
+    absScroll.addEventListener('scroll', (e) => {
+        let scrollUp = e.target.scrollTop > lastScrollTop;
+        scrollPosition += scrollUp ? 100 : -100;
+        lastScrollTop = e.target.scrollTop;
+        updateItemPositions();
+    });
+
     let scene = document.querySelector('flt-scene');
     let report = document.querySelector('flt-report');
     let eventTypes = [
@@ -7,6 +30,8 @@ window.addEventListener('load', () => {
         'pointerup',
         'pointercancel',
         'click',
+        'scroll',
+        'keypress',
     ];
 
     let eventTypeIcons = {
@@ -15,6 +40,8 @@ window.addEventListener('load', () => {
         'pointerup': '&#8593;',
         'pointercancel': '&#215;',
         'click': '&#10003;',
+        'scroll': '|',
+        'keypress': 'k',
     };
 
     let eventTypeCategories = {
@@ -23,6 +50,8 @@ window.addEventListener('load', () => {
         'pointerup': 'pointer',
         'pointercancel': 'pointer',
         'click': 'gesture',
+        'scroll': 'gesture',
+        'keypress': 'gesture',
     };
 
     let recording = [];
@@ -49,6 +78,12 @@ window.addEventListener('load', () => {
         console.log('Recording events');
         eventTypes.forEach((eventType) => {
             scene.addEventListener(eventType, listener);
+        });
+        document.querySelector('.scrollable').addEventListener('scroll', (e) => {
+            console.log(`>>> scroll: ${e.target.scrollTop}`);
+        });
+        document.querySelector('.scrollable').addEventListener('pointermove', (e) => {
+            console.log(`>>> pointermove inside scrollable`);
         });
     }
 
